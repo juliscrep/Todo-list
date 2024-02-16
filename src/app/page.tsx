@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <main >
-      <div className="todo-app">
+      <div className="todo-app appear">
         <h1>Todo List</h1>
         <TodoForm addTodo={addTodo}/>
         <TodoList todos={todos} toggleComplete={toggleComplete}/>
