@@ -23,12 +23,22 @@ export default function Home() {
     setTodos(updatedTodos);
   }
 
+  const removeTodo: RemoveTodo = todoToRemove => {
+    let updatedTodos: Array<Todo> = todos.filter(todo => todo.text != todoToRemove.text);
+    setTodos(updatedTodos);
+  }
+  
+  const editTodo: EditTodo = todoToEdit => {
+    let todoToUpdateIndex: number = todos.findIndex(todo => todo.text == todoToEdit.text)
+  }
+
   return (
     <main >
       <div className="todo-app appear">
         <h1>Todo List</h1>
         <TodoForm addTodo={addTodo}/>
-        <TodoList todos={todos} toggleComplete={toggleComplete}/>
+        <TodoList todos={todos} toggleComplete={toggleComplete}
+         onRemoveTodo={removeTodo} onEditTodo={editTodo}/>
       </div>
     </main>
   );
